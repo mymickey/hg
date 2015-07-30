@@ -13,6 +13,7 @@
 @required
 -(void)didPop:(UINavigationController *)nav;
 -(UIViewController *)didPush:(UINavigationController *)nav;
+-(void)didCancel:(UINavigationController *)nav;
 -(NSInteger) getColumnBackIndex;
 @end
 @interface HistoryTransitionNavDelegate : NSObject<UINavigationControllerDelegate>

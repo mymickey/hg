@@ -58,7 +58,7 @@
     [HistoryStore setDelegate:self];
     startDate = [NSDate date];
     //轮询检查 是否过了今天 如果过了则刷新首页记录
-    NSTimer *timer = [NSTimer timerWithTimeInterval:5 target:self selector:@selector(waitRefresh) userInfo:nil repeats:YES];
+    NSTimer *timer = [NSTimer timerWithTimeInterval:1 target:self selector:@selector(waitRefresh) userInfo:nil repeats:YES];
     [[NSRunLoop currentRunLoop]addTimer:timer forMode:NSDefaultRunLoopMode];
     [timer fire];
 }
@@ -86,7 +86,6 @@
     NSDate *currentDate = [NSDate date];
     NSDateComponents *comp1 = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:startDate];
     NSDateComponents *comp2 = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:currentDate];
-    NSLog(@"main is today:%li,%li",(long)[comp2 day],(long)[comp1 day]);
     return [comp1 day] == [comp2 day];
 }
 -(void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary *)change context:(void *)context

@@ -78,6 +78,7 @@
             [interractive finishInteractiveTransition];
         } else {
             [interractive cancelInteractiveTransition];
+            [self.delegate didCancel:self.nav];
             vcShowIsComplete = YES;
         }
         interractive = nil;
